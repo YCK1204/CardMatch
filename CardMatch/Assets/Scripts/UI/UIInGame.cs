@@ -55,6 +55,7 @@ public class UIInGame : MonoBehaviour
     }
     public void Retry()
     {
+        Time.timeScale = 1f;
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
