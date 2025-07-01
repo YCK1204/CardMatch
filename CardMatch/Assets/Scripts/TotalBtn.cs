@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class TotalBtn : MonoBehaviour
 {
+    [SerializeField]
+    GameObject LvPopup;
     public void OpenScene()
     {
         SceneManager.LoadScene("MainScene");
@@ -12,7 +14,7 @@ public class TotalBtn : MonoBehaviour
 
     public void OpenLevel()
     {
-        SceneManager.LoadScene("Yechan");
+        LvPopup.SetActive(true);
     } 
 
     public void OnQuit()
