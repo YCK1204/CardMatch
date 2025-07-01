@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     float time = 0.0f;
 
     public GameObject endGamePanel;
+    public TextMeshProUGUI timeTextUI;
 
     public int testindex;
     private void Awake()
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
         }
 
         time += Time.deltaTime;
+        timeTextUI.text = time.ToString("N2");
         Debug.Log($"time = {time}"); 
         if (time >= 5.0f)
         {
