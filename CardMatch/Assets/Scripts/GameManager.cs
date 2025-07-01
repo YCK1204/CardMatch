@@ -5,12 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    AudioSource audioSource;
+    public AudioClip clip;
 
     public Card firstCard;
     public Card secondCard;
-
-    SoundManager_seyun soundManager;
-    public AudioClip matchClip;
 
     public int cardCount = 0; 
 
@@ -35,8 +34,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        soundManager = SoundManager_seyun.Instance;
-
+        audioSource = GetComponent<AudioSource>();
         gameStart = true;
         Time.timeScale = 1.0f;
     }
@@ -61,6 +59,9 @@ public class GameManager : MonoBehaviour
         if(firstCard.idx == secondCard.idx)
         {
             // Ä«µå ÆÄ±«
+            audioSource.volume = AudioManager.Instance.GetSfxVolume();
+            audioSource.PlayOneShot(clip);
+
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;

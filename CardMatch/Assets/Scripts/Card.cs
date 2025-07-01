@@ -10,8 +10,11 @@ public class Card : MonoBehaviour
     public GameObject back;
     public Animator anim;
     public SpriteRenderer frontImage;
+    AudioSource audioSource;
+    public AudioClip clip;
     public void Setting(int number)
     {
+        audioSource = GetComponent<AudioSource>();
         idx = number;
         frontImage.sprite = Resources.Load<Sprite>($"Sprites/fruit{idx}");  //sprite 이름 통일
 
@@ -19,7 +22,10 @@ public class Card : MonoBehaviour
 
     public void OpenCard()
     {
-       // anim.SetBool("IsOpen", true);
+        audioSource.volume = AudioManager.Instance.GetSfxVolume();
+        audioSource.PlayOneShot(clip);
+
+        // anim.SetBool("IsOpen", true);
         front.SetActive(true);
         back.SetActive(false);
 
