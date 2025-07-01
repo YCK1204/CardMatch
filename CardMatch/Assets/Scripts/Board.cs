@@ -11,6 +11,7 @@ public class Board : MonoBehaviour
     {
         int[] easy = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 };
         SpawnCard(easy);
+
         /*switch (Level.selectLevelindex) // Main Scene에서 Stage를 누른 값을 기반으로 카드 생성
         {
             case 1:
@@ -38,6 +39,7 @@ public class Board : MonoBehaviour
 
         for (int i = 0; i < arr.Length; i++)
         {
+            Debug.Log($"카드 생성 중: {i} 번째 카드");
             GameObject go = Instantiate(card, this.transform);
 
             float x = (i % 4) * 1.4f - 2.1f;

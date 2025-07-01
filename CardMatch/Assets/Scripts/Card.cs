@@ -13,7 +13,7 @@ public class Card : MonoBehaviour
     public void Setting(int number)
     {
         idx = number;
-        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}"); //sprite 이름 통일
+        //frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}"); //sprite 이름 통일
     }
 
     public void OpenCard()
