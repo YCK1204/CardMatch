@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -20,8 +21,8 @@ public class UILvSelection : MonoBehaviour
                 return;
 
             int lv = int.Parse(lvText.text.Substring(5));
-            Time.timeScale = 1f; // 게임 속도 초기화
             Debug.Log($"레벨 {lv}");
+            Level.selectLevelindex = lv;
             SceneManager.LoadScene("MainScene"); // 레벨에 맞는 씬 전환 필요
         }
     }
