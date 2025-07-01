@@ -7,6 +7,7 @@ public class TotalBtn : MonoBehaviour
 {
     [SerializeField]
     GameObject LvPopup;
+
     public void OnClickPlayBtn()
     {
         LvPopup.SetActive(true);

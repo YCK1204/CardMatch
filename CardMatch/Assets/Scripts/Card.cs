@@ -22,8 +22,8 @@ public class Card : MonoBehaviour
 
     public void OpenCard()
     {
-        audioSource.volume = AudioManager.Instance.GetSfxVolume();
-        audioSource.PlayOneShot(clip);
+        //audioSource.volume = AudioManager.Instance.GetSfxVolume();
+        //audioSource.PlayOneShot(clip);
 
         // anim.SetBool("IsOpen", true);
         front.SetActive(true);

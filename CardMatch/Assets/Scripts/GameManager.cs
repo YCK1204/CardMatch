@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Card secondCard;
 
     SoundManager_seyun soundManager;
+
     public AudioClip matchClip;
 
     public int cardCount = 0;
@@ -19,8 +20,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject endGamePanel;
 
+    public int testindex;
     private void Awake()
     {
+        testindex = 0;
         Time.timeScale = 1.0f;
         Debug.Log($"Time.timeScale = {Time.timeScale}");
         if (Instance == null)
@@ -43,7 +46,7 @@ public class GameManager : MonoBehaviour
         //Time.timeScale = 1.0f;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         time += Time.deltaTime;
         Debug.Log($"time = {time}"); 

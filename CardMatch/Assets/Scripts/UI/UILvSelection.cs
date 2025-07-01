@@ -10,7 +10,8 @@ public class UILvSelection : MonoBehaviour
 {
     [SerializeField]
     GameObject Popup;
-    public void OnClickLevel()
+
+    /*public void OnClickLevel()
     {
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
 
@@ -25,9 +26,15 @@ public class UILvSelection : MonoBehaviour
             Level.selectLevelindex = lv;
             SceneManager.LoadScene("MainScene"); // 레벨에 맞는 씬 전환 필요
         }
-    }
+    }*/
     public void ClosePopup()
     {
         Popup.SetActive(false);
+    }
+
+    public void LevelButton(int index)
+    {
+        Level.selectLevelindex = index;
+        SceneManager.LoadScene("MainScene");                 
     }
 }
