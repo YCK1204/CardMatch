@@ -10,6 +10,7 @@ public class TotalBtn : MonoBehaviour
     public void OpenScene()
     {
         SceneManager.LoadScene("MainScene");
+        
     }
 
     public void OpenLevel()
