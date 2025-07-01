@@ -6,6 +6,13 @@ public static class Extension
 {
     public static T FindChild<T>(this GameObject parent, bool recursive = false, string name = null) where T : Component
     {
+        if (parent == null)
+        {
+            return null;
+        }
+
+
+
         if (recursive == false)
         {
             int childCount = parent.transform.childCount;

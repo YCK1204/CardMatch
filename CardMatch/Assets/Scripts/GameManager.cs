@@ -40,6 +40,17 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        GameObject uiObj = GameObject.Find("UI");
+        if (uiObj == null)
+        {
+            return;
+        }
+        UIInGame uiInGame = uiObj.GetComponentInChildren<UIInGame>(true);
+        if (uiInGame == null)
+        {
+            return;
+        }
+
         time += Time.deltaTime;
         Debug.Log($"time = {time}"); 
         if (time >= 5.0f)
