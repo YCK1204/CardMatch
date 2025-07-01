@@ -38,6 +38,6 @@ public class CardRotate : MonoBehaviour
     public void ChangeImage()
     {
         ImageIndex = (ImageIndex + 1) % 5; // 다시 0부터 시작하려고 %로 나머지 연산 사용했음
-        ctimage.sprite = Resources.Load<Sprite>($"cardUI/card{ImageIndex}"); // 이미지 변경
+        ctimage.sprite = Resources.Load<Sprite>($"cardUI/card{ImageIndex}"); // cardUI폴더 안의 사진들에 접근
     }
 }
