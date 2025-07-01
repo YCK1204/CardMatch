@@ -13,7 +13,7 @@ public class Card : MonoBehaviour
     public void Setting(int number)
     {
         idx = number;
-        //frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}"); //sprite 이름 통일
+        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}"); //sprite 이름 통일
     }
 
     public void OpenCard()
@@ -22,15 +22,15 @@ public class Card : MonoBehaviour
         front.SetActive(true);
         back.SetActive(false);
 
-        /*if (GameManager.instance.firstCard == null)  // 현재 GameManager이 없어서 오류가 떠 주석
+        if (GameManager.Instance.firstCard == null)  // 현재 GameManager이 없어서 오류가 떠 주석
         {
-            GameManager.instance.firstCard = this;
+            GameManager.Instance.firstCard = this;
         }
         else
         {
-            GameManager.instance.secondCard = this;
-            GameManager.instance.Matched();
-        }*/
+            GameManager.Instance.secondCard = this;
+            GameManager.Instance.isMatch();
+        }
     }
     public void DestroyCard()
     {

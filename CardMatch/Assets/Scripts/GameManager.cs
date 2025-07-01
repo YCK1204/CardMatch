@@ -6,11 +6,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public Card_seyun firstCard;
-    public Card_seyun secondCard;
+    public Card firstCard;
+    public Card secondCard;
 
     SoundManager_seyun soundManager;
     public AudioClip matchClip;
+
+    public int cardCount = 0; 
 
     float time = 0.0f;
     bool gameStart = false;
@@ -54,12 +56,16 @@ public class GameManager : MonoBehaviour
     public void isMatch()
     {
         // 카드가 서로 일치하면
-        if(firstCard.number == secondCard.number)
+        if(firstCard.idx == secondCard.idx)
         {
             // 카드 파괴
             firstCard.DestroyCard();
             secondCard.DestroyCard();
-
+            cardCount -= 2;
+            if(cardCount == 0) // 게임 클리어 사진 넣을 예정
+            {
+                Debug.Log("게임 클리어!");
+            }
             // 효과음 재생 
             soundManager.PlayEffectSound(Sound.match);
         }
