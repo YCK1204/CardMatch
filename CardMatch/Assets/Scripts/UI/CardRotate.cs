@@ -14,7 +14,8 @@ public class CardRotate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1f;
+        GetComponent<Animator>().Play("CardRotate", -1, 0f); // 카드 회전 애니메이션 처음부터 다시 시작 코드
     }
 
     // Update is called once per frame
