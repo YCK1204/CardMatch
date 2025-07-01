@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("게임 클리어!");
             }
             // 효과음 재생 
-            soundManager.PlayEffectSound(Sound.match);
+            //soundManager.PlayEffectSound(Sound.match);
         }
 
         // 카드가 서로 일치하지 않으면 
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
             secondCard.CloseCard();
 
             // 효과음 재생
-            soundManager.PlayEffectSound(Sound.flip);
+           // soundManager.PlayEffectSound(Sound.flip);
         }
 
         // 카드 비우기 => 다음 카드를 올리려면 비워야함

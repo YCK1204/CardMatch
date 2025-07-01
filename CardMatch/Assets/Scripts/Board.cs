@@ -9,7 +9,9 @@ public class Board : MonoBehaviour
 
     void Start()
     {
-        switch (Level.selectLevelindex) // Main Scene에서 Stage를 누른 값을 기반으로 카드 생성
+        int[] easy = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 };
+        SpawnCard(easy);
+        /*switch (Level.selectLevelindex) // Main Scene에서 Stage를 누른 값을 기반으로 카드 생성
         {
             case 1:
                 int[] easy = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 };
@@ -26,7 +28,7 @@ public class Board : MonoBehaviour
                 SpawnCard(hard);
                 break;
 
-        }
+        }*/
 
     }
 
@@ -44,11 +46,7 @@ public class Board : MonoBehaviour
             go.transform.position = new Vector2(x, y);
             go.GetComponent<Card>().Setting(arr[i]);
         }
-
-<<<<<<< Updated upstream
         GameManager.Instance.cardCount = arr.Length;
-=======
-        //GameManager.instance.cardCount = arr.Length;
->>>>>>> Stashed changes
+
     }
 }
