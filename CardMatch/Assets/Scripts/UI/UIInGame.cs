@@ -38,6 +38,7 @@ public class UIInGame : MonoBehaviour
     }
     public void GoToLobby()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("StartScene");
     }
     public void DisplayGameResult(bool clear)

@@ -7,17 +7,10 @@ public class TotalBtn : MonoBehaviour
 {
     [SerializeField]
     GameObject LvPopup;
-    public void OpenScene()
-    {
-        SceneManager.LoadScene("MainScene");
-        
-    }
-
-    public void OpenLevel()
+    public void OnClickPlayBtn()
     {
         LvPopup.SetActive(true);
-    } 
-
+    }
     public void OnQuit()
     {
 #if UNITY_EDITOR
