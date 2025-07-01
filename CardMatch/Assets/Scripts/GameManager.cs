@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
+            GameManager.Instance.time = 0f;
         }
     }
 
@@ -40,15 +41,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (gameStart)
         {
             time += Time.deltaTime;
-            if (time >= 30.0f)
+            if (time >= 5.0f)
             {
                 Time.timeScale = 0.0f;
-                endGamePanel.SetActive(true);
+                GameObject.Find("UI").FindChild<UIInGame>().DisplayGameResult(false);
+                //endGamePanel.SetActive(true);
             }
         }
     }
@@ -64,6 +66,7 @@ public class GameManager : MonoBehaviour
             cardCount -= 2;
             if(cardCount == 0) // 게임 클리어 사진 넣을 예정
             {
+                GameObject.Find("UI").FindChild<UIInGame>().DisplayGameResult(true);
                 Debug.Log("게임 클리어!");
             }
             // 효과음 재생 

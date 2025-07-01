@@ -38,7 +38,7 @@ public class UIInGame : MonoBehaviour
     }
     public void GoToLobby()
     {
-        // ∑Œ∫Ò æ¿ ¿Ãµø
+        SceneManager.LoadScene("StartScene");
     }
     public void DisplayGameResult(bool clear)
     {
