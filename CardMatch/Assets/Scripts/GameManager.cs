@@ -9,14 +9,11 @@ public class GameManager : MonoBehaviour
     public Card firstCard;
     public Card secondCard;
 
-    SoundManager_seyun soundManager;
-
     public AudioClip matchClip;
 
     public int cardCount = 0;
 
     float time = 0.0f;
-    bool gameStart = false;
 
     public GameObject endGamePanel;
 
@@ -40,21 +37,28 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //soundManager = SoundManager_seyun.Instance;
-
-        //gameStart = true;
-        //Time.timeScale = 1.0f;
+        
     }
 
     void Update()
     {
+        GameObject uiObj = GameObject.Find("UI");
+        if (uiObj == null)
+        {
+            return;
+        }
+        UIInGame uiInGame = uiObj.GetComponentInChildren<UIInGame>(true);
+        if (uiInGame == null)
+        {
+            return;
+        }
+
         time += Time.deltaTime;
         Debug.Log($"time = {time}"); 
         if (time >= 5.0f)
         {
             Time.timeScale = 0.0f;
             GameObject.Find("UI").FindChild<UIInGame>().DisplayGameResult(false);
-            //endGamePanel.SetActive(true);
         }
     }
 
