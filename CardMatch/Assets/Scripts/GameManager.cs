@@ -33,8 +33,9 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
-            GameManager.Instance.time = 0f;
         }
+        GameManager.Instance.time = 0f;
+        GameManager.Instance.timeTextUI = GameObject.Find("UI").FindChild<TextMeshProUGUI>(true, name: "Time");
     }
 
     void Start()
