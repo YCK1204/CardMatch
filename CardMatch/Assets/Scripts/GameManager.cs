@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
 
                 // 사진 활성화
                 GameObject.Find("UI").FindChild<UIInGame>().winners()[Random.Range(0, 5)].SetActive(true);
+                Time.timeScale = 0.0f; // 게임 정지
             }
         }
 
