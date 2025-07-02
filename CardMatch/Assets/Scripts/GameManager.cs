@@ -10,14 +10,12 @@ public class GameManager : MonoBehaviour
     public Card firstCard;
     public Card secondCard;
 
-    public AudioClip matchClip;
-
     public int cardCount = 0;
 
     float time = 0.0f;
 
-    public GameObject endGamePanel;
     public TextMeshProUGUI timeTextUI;
+    public TextMeshProUGUI levelTextUI;
 
     public int testindex;
     private void Awake()
@@ -25,6 +23,9 @@ public class GameManager : MonoBehaviour
         testindex = 0;
         Time.timeScale = 1.0f;
         Debug.Log($"Time.timeScale = {Time.timeScale}");
+
+        levelTextUI.text = $"Lv. {Level.selectLevelindex}";
+
         if (Instance == null)
         {
             Instance = this;
@@ -36,11 +37,6 @@ public class GameManager : MonoBehaviour
         }
         GameManager.Instance.time = 0f;
         GameManager.Instance.timeTextUI = GameObject.Find("UI").FindChild<TextMeshProUGUI>(true, name: "Time");
-    }
-
-    void Start()
-    {
-        
     }
 
     void Update()
