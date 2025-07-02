@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIInGame : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class UIInGame : MonoBehaviour
     TextMeshProUGUI TextLv;
     [SerializeField]
     GameObject GameResultPopup;
+    [SerializeField]
+    GameObject SuccessPopup;
+    [SerializeField]
+    Text shortestTimeUI;
+    [SerializeField]
+    GameObject[] winnersArray;
 
     #region Setters
     public void SetLevel(int level)
@@ -53,6 +60,18 @@ public class UIInGame : MonoBehaviour
         result.text = clear ? "축하합니다!" : "다시 도전해보세요!";
         Time.timeScale = 0f;
         GameResultPopup.SetActive(true);
+    }
+    public void Finish()
+    {
+        SuccessPopup.SetActive(true);
+    }
+    public Text shortestTime()
+    {
+        return shortestTimeUI;
+    }
+    public GameObject[] winners()
+    {
+        return winnersArray;
     }
     public void Retry()
     {

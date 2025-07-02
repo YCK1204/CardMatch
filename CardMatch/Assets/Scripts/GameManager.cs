@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI levelTextUI;
 
     float playTime = 0;
+    float shortestTime = 0f;
+
     public int testindex;
     private void Awake()
     {
@@ -61,7 +64,7 @@ public class GameManager : MonoBehaviour
 
         time += Time.deltaTime;
         timeTextUI.text = time.ToString("N2");
-        Debug.Log($"time = {time}"); 
+        //Debug.Log($"time = {time}"); 
         if (time >= playTime)
         {
             Time.timeScale = 0.0f;
@@ -71,34 +74,55 @@ public class GameManager : MonoBehaviour
 
     public void isMatch()
     {
-        // ī�尡 ���� ��ġ�ϸ�
+        // 카드가 서로 일치하면
         if (firstCard.idx == secondCard.idx)
         {
-            // ī�� �ı�
+            // 카드 파괴
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
-            if (cardCount == 0) // ���� Ŭ���� ���� ���� ����
+            if (cardCount == 0) // 게임 클리어 사진 넣을 예정
             {
-                GameObject.Find("UI").FindChild<UIInGame>().DisplayGameResult(true);
-                Debug.Log("���� Ŭ����!");
+                //GameObject.Find("UI").FindChild<UIInGame>().DisplayGameResult(true);
+                Debug.Log("게임 클리어!");
+
+                // 승리 UI 활성화
+                GameObject.Find("UI").FindChild<UIInGame>().Finish();
+
+                // 시간 표시
+                if (PlayerPrefs.HasKey("shortestTime"))
+                {
+                    Debug.Log("키 존재함!");
+                    shortestTime = PlayerPrefs.GetFloat("shortestTime");
+                    if (time < shortestTime)
+                    {
+                        PlayerPrefs.SetFloat("shortestTime", time);
+                        shortestTime = time;
+                    }
+                }
+                else
+                {
+                    Debug.Log("키 존재하지 않음!");
+                    PlayerPrefs.SetFloat("shortestTime", time);
+                    shortestTime = time;
+                }
+
+                GameObject.Find("UI").FindChild<UIInGame>().shortestTime().text = shortestTime.ToString();
+
+                // 사진 활성화
+                GameObject.Find("UI").FindChild<UIInGame>().winners()[Random.Range(0, 5)].SetActive(true);
             }
-            // ȿ���� ��� 
-            //soundManager.PlayEffectSound(Sound.match);
         }
 
-        // ī�尡 ���� ��ġ���� ������ 
+        // 카드가 서로 일치하지 않으면
         else
         {
-            // ī�� ������
+            // 카드 뒤집기
             firstCard.CloseCard();
             secondCard.CloseCard();
-
-            // ȿ���� ���
-            // soundManager.PlayEffectSound(Sound.flip);
         }
 
-        // ī�� ���� => ���� ī�带 �ø����� �������
+        // 카드 비우기 => 다음 카드를 올리려면 비워야함
         firstCard = null;
         secondCard = null;
     }
