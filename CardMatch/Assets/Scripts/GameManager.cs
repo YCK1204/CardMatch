@@ -25,6 +25,12 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         Debug.Log($"Time.timeScale = {Time.timeScale}");
 
+        // MainScene ì§„ì… ì‹œ í•´ìƒë„ ì¬ì„¤ì •
+        if (GameInitManager.Instance != null)
+        {
+            GameInitManager.Instance.RefreshDisplaySize();
+        }
+
         levelTextUI.text = $"Lv. {Level.selectLevelindex}";
         playTime = GameInitManager.Instance.GetLevelPlayTime(Level.selectLevelindex);
         if (Instance == null)
@@ -65,34 +71,34 @@ public class GameManager : MonoBehaviour
 
     public void isMatch()
     {
-        // Ä«µå°¡ ¼­·Î ÀÏÄ¡ÇÏ¸é
+        // Ä«ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï¸ï¿½
         if (firstCard.idx == secondCard.idx)
         {
-            // Ä«µå ÆÄ±«
+            // Ä«ï¿½ï¿½ ï¿½Ä±ï¿½
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
-            if (cardCount == 0) // °ÔÀÓ Å¬¸®¾î »çÁø ³ÖÀ» ¿¹Á¤
+            if (cardCount == 0) // ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             {
                 GameObject.Find("UI").FindChild<UIInGame>().DisplayGameResult(true);
-                Debug.Log("°ÔÀÓ Å¬¸®¾î!");
+                Debug.Log("ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½!");
             }
-            // È¿°úÀ½ Àç»ı 
+            // È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
             //soundManager.PlayEffectSound(Sound.match);
         }
 
-        // Ä«µå°¡ ¼­·Î ÀÏÄ¡ÇÏÁö ¾ÊÀ¸¸é 
+        // Ä«ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
         else
         {
-            // Ä«µå µÚÁı±â
+            // Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             firstCard.CloseCard();
             secondCard.CloseCard();
 
-            // È¿°úÀ½ Àç»ı
+            // È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             // soundManager.PlayEffectSound(Sound.flip);
         }
 
-        // Ä«µå ºñ¿ì±â => ´ÙÀ½ Ä«µå¸¦ ¿Ã¸®·Á¸é ºñ¿ö¾ßÇÔ
+        // Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ => ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½å¸¦ ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         firstCard = null;
         secondCard = null;
     }

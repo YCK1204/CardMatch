@@ -92,6 +92,12 @@ public class GameInitManager : MonoBehaviour
         
         Debug.Log($"Display Size Set - Resolution: {Screen.width}x{Screen.height}, Aspect: {(float)Screen.width/Screen.height:F2}");
     }
+    
+    // 외부에서 해상도 조절을 호출할 수 있는 공개 메서드
+    public void RefreshDisplaySize()
+    {
+        SetDisplaySize();
+    }
     public float GetLevelPlayTime(int levelIndex)
     {
         try
