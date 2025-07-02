@@ -34,9 +34,9 @@ RectTransform:
   - {fileID: 7695223241086297893}
   m_Father: {fileID: 7992615911445609132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 167, y: -347}
+  m_AnchorMin: {x: 0.09788891, y: 0.87633336}
+  m_AnchorMax: {x: 0.09788891, y: 0.87633336}
+  m_AnchoredPosition: {x: 141, y: -50}
   m_SizeDelta: {x: 288.8888, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3951204517989198556
@@ -125,10 +125,10 @@ RectTransform:
   - {fileID: 357917540051299688}
   m_Father: {fileID: 7992615911445609132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -528.1482, y: -344}
-  m_SizeDelta: {x: 113.7036, y: 118.46}
+  m_AnchorMin: {x: 0.86, y: 0.88083345}
+  m_AnchorMax: {x: 0.86, y: 0.88083345}
+  m_AnchoredPosition: {x: -57, y: -58.5}
+  m_SizeDelta: {x: 113.7036, y: 117.45999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6625217448293136248
 CanvasRenderer:
@@ -378,10 +378,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7992615911445609132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 405.20068, y: 932.6963}
-  m_SizeDelta: {x: 349.5986, y: 87.3997}
+  m_AnchorMin: {x: 0.35244444, y: 0.77949995}
+  m_AnchorMax: {x: 0.6778519, y: 0.8171667}
+  m_AnchoredPosition: {x: -2.5, y: 1}
+  m_SizeDelta: {x: -1.4013672, y: -4.600281}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3347583069339354167
 CanvasRenderer:
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -690,12 +690,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1080, y: 2400}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
