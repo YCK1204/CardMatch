@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timeTextUI;
     public TextMeshProUGUI levelTextUI;
 
+    float playTime = 0;
     public int testindex;
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Time.timeScale = {Time.timeScale}");
 
         levelTextUI.text = $"Lv. {Level.selectLevelindex}";
-
+        playTime = GameInitManager.Instance.GetLevelPlayTime(Level.selectLevelindex);
         if (Instance == null)
         {
             Instance = this;
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour
         time += Time.deltaTime;
         timeTextUI.text = time.ToString("N2");
         Debug.Log($"time = {time}"); 
-        if (time >= 5.0f)
+        if (time >= playTime)
         {
             Time.timeScale = 0.0f;
             GameObject.Find("UI").FindChild<UIInGame>().DisplayGameResult(false);

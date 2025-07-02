@@ -1,0 +1,16 @@
+{
+  "levels": [
+    {
+      "levelIndex": 1,
+      "playTime": 30
+    },
+    {
+      "levelIndex": 2,
+      "playTime": 45
+    },
+    {
+      "levelIndex": 3,
+      "playTime": 60
+    }
+  ]
+}
