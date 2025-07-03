@@ -64,6 +64,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        Board board = FindObjectOfType<Board>();
+        if (board != null && board.isSetting)
+            return;
+
         time += Time.deltaTime;
         timeTextUI.text = time.ToString("N2");
         //Debug.Log($"time = {time}"); 
@@ -85,6 +89,8 @@ public class GameManager : MonoBehaviour
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
+
+
             if (cardCount == 0) // 게임 클리어 사진 넣을 예정
             {
                 //GameObject.Find("UI").FindChild<UIInGame>().DisplayGameResult(true);
@@ -109,6 +115,7 @@ public class GameManager : MonoBehaviour
                     Debug.Log("키 존재하지 않음!");
                     PlayerPrefs.SetFloat("shortestTime", time);
                     shortestTime = time;
+
                 }
 
                 GameObject.Find("UI").FindChild<UIInGame>().shortestTime().text = shortestTime.ToString();
@@ -125,6 +132,7 @@ public class GameManager : MonoBehaviour
             // 카드 뒤집기
             firstCard.CloseCard();
             secondCard.CloseCard();
+
         }
 
         // 카드 비우기 => 다음 카드를 올리려면 비워야함
@@ -138,4 +146,6 @@ public class GameManager : MonoBehaviour
     {
         isProcessing = false;
     }
+
 }
+

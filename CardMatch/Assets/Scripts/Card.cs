@@ -12,6 +12,7 @@ public class Card : MonoBehaviour
     public SpriteRenderer frontImage;
     AudioSource audioSource;
     public AudioClip clip;
+
     public void Setting(int number)
     {
         audioSource = GetComponent<AudioSource>();
@@ -26,6 +27,10 @@ public class Card : MonoBehaviour
             return;
 
         if (front.activeSelf)
+            return;
+
+        Board board = FindObjectOfType<Board>();
+        if (board.isSetting)
             return;
 
 
