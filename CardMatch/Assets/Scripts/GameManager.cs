@@ -21,34 +21,34 @@ public class GameManager : MonoBehaviour
     float playTime = 0;
     float shortestTime = 0f;
 
-    public int testindex;
     private void Awake()
     {
-        testindex = 0;
-        Time.timeScale = 1.0f;
-        Debug.Log($"Time.timeScale = {Time.timeScale}");
+        if (Instance != null)
+        {
+            Init();
+            Destroy(this.gameObject);
+            return;
+        }
 
+        Instance = this;
+        DontDestroyOnLoad(this.gameObject);
+        Init();
+    }
+    void Init()
+    {
         // MainScene 진입 시 해상도 재설정
         if (GameInitManager.Instance != null)
         {
             GameInitManager.Instance.RefreshDisplaySize();
         }
-
-        levelTextUI.text = $"Lv. {Level.selectLevelindex}";
-        playTime = GameInitManager.Instance.GetLevelPlayTime(Level.selectLevelindex);
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-        GameManager.Instance.time = 0f;
-        GameManager.Instance.timeTextUI = GameObject.Find("UI").FindChild<TextMeshProUGUI>(true, name: "Time");
+        GameObject go = GameObject.Find("UI");
+        Instance.levelTextUI = go.FindChild<Image>(true, "Lv").gameObject.FindChild<TextMeshProUGUI>();
+        Instance.levelTextUI.text = $"Lv. {Level.selectLevelindex}";
+        Instance.playTime = GameInitManager.Instance.GetLevelPlayTime(Level.selectLevelindex);
+        Instance.time = 0f;
+        Instance.timeTextUI = GameObject.Find("UI").FindChild<TextMeshProUGUI>(true, name: "Time");
+        Time.timeScale = 1.0f;
     }
-
     void Update()
     {
         GameObject uiObj = GameObject.Find("UI");

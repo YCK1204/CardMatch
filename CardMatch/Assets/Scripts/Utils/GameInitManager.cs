@@ -106,6 +106,7 @@ public class GameInitManager : MonoBehaviour
             {
                 if (level.levelIndex == levelIndex)
                 {
+                    Debug.Log($"레벨 : {levelIndex}, 시간 : {level.playTime}");
                     return level.playTime;
                 }
             }
