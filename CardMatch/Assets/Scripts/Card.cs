@@ -10,12 +10,12 @@ public class Card : MonoBehaviour
     public GameObject back;
     public Animator anim;
     public SpriteRenderer frontImage;
-    AudioSource audioSource;
+    //AudioSource audioSource;
     public AudioClip clip;
 
     public void Setting(int number)
     {
-        audioSource = GetComponent<AudioSource>();
+       //audioSource = GetComponent<AudioSource>();
         idx = number;
         frontImage.sprite = Resources.Load<Sprite>($"Sprites/fruit{idx}");  
 
@@ -33,7 +33,7 @@ public class Card : MonoBehaviour
         if (board.isSetting)
             return;
 
-
+        AudioManager.Instance.PlaySfx(AudioManager.Instance.sfxClip);
         //audioSource.volume = AudioManager.Instance.GetSfxVolume();
         //audioSource.PlayOneShot(clip);
 

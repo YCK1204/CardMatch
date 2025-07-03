@@ -70,7 +70,6 @@ public class GameManager : MonoBehaviour
 
         time += Time.deltaTime;
         timeTextUI.text = time.ToString("N2");
-        //Debug.Log($"time = {time}"); 
         if (time >= playTime)
         {
             Time.timeScale = 0.0f;
@@ -94,7 +93,6 @@ public class GameManager : MonoBehaviour
             if (cardCount == 0) // 게임 클리어 사진 넣을 예정
             {
                 //GameObject.Find("UI").FindChild<UIInGame>().DisplayGameResult(true);
-                Debug.Log("게임 클리어!");
 
                 // 승리 UI 활성화
                 GameObject.Find("UI").FindChild<UIInGame>().Finish();

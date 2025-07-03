@@ -68,6 +68,7 @@ public class Board : MonoBehaviour
                 anim.speed = 0f;
                 animators.Add(anim);
             }
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.cardSettingClip);
 
             yield return new WaitForSeconds(0.1f);
         }
