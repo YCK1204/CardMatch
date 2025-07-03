@@ -16,20 +16,26 @@ public class Card : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         idx = number;
-        frontImage.sprite = Resources.Load<Sprite>($"Sprites/fruit{idx}");  //sprite 이름 통일
+        frontImage.sprite = Resources.Load<Sprite>($"Sprites/fruit{idx}");  
 
     }
 
     public void OpenCard()
     {
+        if (GameManager.Instance.isProcessing)
+            return;
+
+        if (front.activeSelf)
+            return;
+
+
         //audioSource.volume = AudioManager.Instance.GetSfxVolume();
         //audioSource.PlayOneShot(clip);
 
-        // anim.SetBool("IsOpen", true);
         front.SetActive(true);
         back.SetActive(false);
 
-        if (GameManager.Instance.firstCard == null)  // 현재 GameManager이 없어서 오류가 떠 주석
+        if (GameManager.Instance.firstCard == null)  
         {
             GameManager.Instance.firstCard = this;
         }
@@ -55,7 +61,6 @@ public class Card : MonoBehaviour
 
     void CloseCardInvoke()
     {
-       // anim.SetBool("IsOpen", false);
         front.SetActive(false);
         back.SetActive(true);
     }

@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public int cardCount = 0;
 
+    public bool isProcessing = false;
+
     float time = 0.0f;
 
     public TextMeshProUGUI timeTextUI;
@@ -73,7 +75,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void isMatch()
-    {
+    {      
+        isProcessing = true;
+
         // 카드가 서로 일치하면
         if (firstCard.idx == secondCard.idx)
         {
@@ -126,5 +130,12 @@ public class GameManager : MonoBehaviour
         // 카드 비우기 => 다음 카드를 올리려면 비워야함
         firstCard = null;
         secondCard = null;
+
+        Invoke("SetProcessingFalse", 0.55f);
+    }
+
+    void SetProcessingFalse()
+    {
+        isProcessing = false;
     }
 }
