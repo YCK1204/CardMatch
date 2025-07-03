@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip bgmClip;
     public AudioClip sfxClip;
 
+    public AudioClip cardSettingClip;
+
     float masterVolume = 1.0f;
     float bgmVolume = 1.0f;
     float sfxVolume = 1.0f;
@@ -67,8 +69,27 @@ public class AudioManager : MonoBehaviour
     {
         return bgmVolume;
     }
-    public float GetSfxVolume()
+    public float GetSfxVolume() 
     {
         return sfxVolume;
+    }
+    
+    public void PlaySfx(AudioClip clip)
+    {
+        if (clip == null)
+            return;
+
+        if(sfxSource == null)
+        {
+            sfxSource = gameObject.AddComponent<AudioSource>();
+            sfxSource.playOnAwake = false;
+        }
+
+        //if(sfxSource.isPlaying) // 소리가 안겹치게 하고싶으면 포함
+        //return;
+            
+        float finalVolume = masterVolume * sfxVolume;
+        sfxSource.PlayOneShot(clip, finalVolume);
+         
     }
 }
